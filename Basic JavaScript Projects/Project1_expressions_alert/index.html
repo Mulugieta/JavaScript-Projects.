@@ -4,13 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
   <h1>Welcome to My Website</h1>
   <p>This is a basic HTML template.</p>
-  
+
   <script src="JS/main.js"></script>
+
+  <div id="box" onmouseenter="showMessage()">
+    Hover over me!
+  </div>
    
 </body>
 </html>

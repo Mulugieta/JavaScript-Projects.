@@ -5,3 +5,6 @@ var text = 'It\'s a beautiful day to learn ' +  text2
 document.write(text); // this code prints a variable on the page
 
 document.write( 5 + 3); // this code adds the numbers
+function showMessage() {
+    alert("Mouse entered the box!");
+  }
