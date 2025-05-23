@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown & Image Slideshow</title>
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+    <!-- Countdown Section -->
+    <h2>Countdown Timer</h2>
+    <p>How many seconds would you like to set your alarm for?</p>
+    <input type="number" id="seconds" />
+    <button onclick="countdown()">Start Timer</button>
+    <p id="timer"></p>
+
+    <hr>
+
+    <!-- Slideshow Section -->
+    <h2>Image Slideshow</h2>
+    <div class="slideshow-box">
+
+        <div class="slide fade-effect">
+            <img src="images/img1.jpg" alt="Image 1" style="width:100%">
+        </div>
+
+        <div class="slide fade-effect">
+            <img src="images/img2.jpg" alt="Image 2" style="width:100%">
+        </div>
+
+        <div class="slide fade-effect">
+            <img src="images/img3.jpg" alt="Image 3" style="width:100%">
+        </div>
+
+        <!-- Controls -->
+        <a class="nav left" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="nav right" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Slide indicators -->
+    <div class="dots-container">
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+    </div>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>
