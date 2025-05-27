@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Basic AJAX Demo</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="main">
+
+<h2>Get The Latest Content:</h2>
+
+<div class='content' id="content'>
+
+<input type="button" class="button" value="Get Content" id="btn_content" onclick="getContent();" />
+
+</div>
+
+<script type="text/javascript">
+
+// STEP 1: Setup the XMLHttpRequest object. This object is used to exchange data with a server behind the scenes. [cite: 3]
+var ajax = new XMLHttpRequest();
+
+// STEP 2: Prepare the open AJAX request.
+// 'GET' specifies the HTTP method.
+// 'content.html' is the URL to which the request is sent.
+// The request is asynchronous by default.
+ajax.open('GET', 'content.html');
+
+// STEP 3: Define the AJAX response callback method.
+// This function is called whenever the readyState attribute changes.
+ajax.onreadystatechange = function () {
+
+// Check if the request is complete (readyState == 4) and the status is OK (e.g., 200 for success).
+// readyState 4 means the operation is complete.
+if (ajax.readyState == 4) {
+
+// Update the innerHTML of the 'content' div with the response text received from the server.
+document.getElementById('content').innerHTML = ajax.responseText;
+
+}
+
+}
+
+// STEP 4: Send the AJAX request for data.
+// This function is called when the 'Get Content' button is clicked. [cite: 2]
+function getContent() {
+
+ajax.send();
+
+}
+
+</script>
+
+<script type="text/javascript">
+// This script runs after the initial content is loaded.
+// It hides the 'Get Content' button once the page is displayed or the request is sent.
+document.getElementById('btn_content').style.display = 'none';
+</script>
+
+</body>
+
+</html>
