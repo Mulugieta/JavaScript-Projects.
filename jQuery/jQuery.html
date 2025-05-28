@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Challenge</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #eventDiv {
+            width: 300px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid blue;
+            background-color: lightblue;
+            cursor: pointer;
+            text-align: center;
+        }
+        #effectDiv {
+            width: 300px;
+            height: 100px;
+            background-color: lightgreen;
+            border: 2px solid green;
+            text-align: center;
+            line-height: 100px; /* Vertically align text */
+            cursor: pointer;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery Challenge</h1>
+
+    <h2>jQuery Event Example (Click Event)</h2>
+    <div id="eventDiv">
+        Click me to change my text!
+    </div>
+    <p><em>(This demonstrates a jQuery event from "Event Basics")</em></p>
+
+    <h2>jQuery Effect Example (Slide Up/Down)</h2>
+    <div id="effectDiv">
+        Click the buttons to slide me!
+    </div>
+    <button id="slideUpBtn">Slide Up</button>
+    <button id="slideDownBtn">Slide Down</button>
+    <p><em>(This demonstrates a jQuery effect from "Introduction to Effects")</em></p>
+
+    <script>
+        // Ensure the DOM is fully loaded before running jQuery code
+        $(document).ready(function() {
+
+            // --- jQuery Event Example (Click) ----
+            // I'll use the 'click' event, as listed in the "Event Basics" documentation.
+            $('#eventDiv').on('click', function() {
+                $(this).text('You clicked me! I am Mulugieta From Academy of Learning!');
+                $(this).css('background-color', 'cornflowerblue');
+            });
+
+            // --- jQuery Effect Example (Slide Up/Down) -------
+            // I'll use 'slideUp()' and 'slideDown()' effects, as listed in "Introduction to Effects".
+            $('#slideUpBtn').on('click', function() {
+                $('#effectDiv').slideUp(1000, function() {
+                    console.log('Div has slid up!');
+                });
+            });
+
+            $('#slideDownBtn').on('click', function() {
+                $('#effectDiv').slideDown(1000, function() {
+                    console.log('Div has slid down!');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
