@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Challenge</title>
+    <title>jQuery Dynamic Challenge</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
+        /* Basic styling for the dynamically added elements */
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
@@ -38,35 +39,44 @@
 </head>
 <body>
 
-    <h1>jQuery Challenge</h1>
-
-    <h2>jQuery Event Example (Click Event)</h2>
-    <div id="eventDiv">
-        Click me to change my text!
-    </div>
-    <p><em>(This demonstrates a jQuery event from "Event Basics")</em></p>
-
-    <h2>jQuery Effect Example (Slide Up/Down)</h2>
-    <div id="effectDiv">
-        Click the buttons to slide me!
-    </div>
-    <button id="slideUpBtn">Slide Up</button>
-    <button id="slideDownBtn">Slide Down</button>
-    <p><em>(This demonstrates a jQuery effect from "Introduction to Effects")</em></p>
-
     <script>
-        // Ensure the DOM is fully loaded before running jQuery code
+        // Ensure the DOM is fully loaded before running any jQuery
         $(document).ready(function() {
 
-            // --- jQuery Event Example (Click) ----
-            // I'll use the 'click' event, as listed in the "Event Basics" documentation.
+            // --- Dynamically append all main HTML content to the body ---
+            // This structure mimics the PDF's approach of building the page content
+            // using jQuery's append method.
+            $('body').append(
+                `
+                <h1>jQuery Challenge</h1>
+
+                <h2>jQuery Event Example (Click Event)</h2>
+                <div id="eventDiv">
+                    Click me to change my text!
+                </div>
+                <p><em>(This demonstrates a jQuery event from "Event Basics")</em></p>
+
+                <h2>jQuery Effect Example (Slide Up/Down)</h2>
+                <div id="effectDiv">
+                    Click the buttons to slide me!
+                </div>
+                <button id="slideUpBtn">Slide Up</button>
+                <button id="slideDownBtn">Slide Down</button>
+                <p><em>(This demonstrates a jQuery effect from "Introduction to Effects")</em></p>
+                `
+            );
+
+            // --- jQuery Event Logic (unchanged from previous version) ---
+            // We'll use the 'click' event, as listed in the "Event Basics" documentation.
+            // This event listener is attached *after* the #eventDiv has been appended to the DOM.
             $('#eventDiv').on('click', function() {
-                $(this).text('You clicked me! I am Mulugieta From Academy of Learning!');
+                $(this).text('You clicked me! I am Mulugieta From Academy Of Learning. Thank You!');
                 $(this).css('background-color', 'cornflowerblue');
             });
 
-            // --- jQuery Effect Example (Slide Up/Down) -------
-            // I'll use 'slideUp()' and 'slideDown()' effects, as listed in "Introduction to Effects".
+            // --- jQuery Effect Logic (unchanged from previous version) ---
+            // We'll use 'slideUp()' and 'slideDown()' effects, as listed in "Introduction to Effects".
+            // These event listeners are attached *after* the buttons and #effectDiv have been appended.
             $('#slideUpBtn').on('click', function() {
                 $('#effectDiv').slideUp(1000, function() {
                     console.log('Div has slid up!');
