@@ -4,6 +4,33 @@
     <title>Pizza Drill Demo</title>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script defer>
+      function validateForm() {
+        const phone = document.getElementById("phone").value.trim();
+        const sizes = document.querySelectorAll("input[name='Size']");
+        let sizeSelected = false;
+
+        for (const size of sizes) {
+          if (size.checked) {
+            sizeSelected = true;
+            break;
+          }
+        }
+
+        if (phone === "" || !sizeSelected) {
+          alert("Please enter your phone number and select a pizza size.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function handleOrderClick() {
+        if (validateForm()) {
+          getReceipt();
+        }
+      }
+    </script>
     <script src="Pizza_JavaScript/Pizza.js" defer></script>
     <link rel="stylesheet" type="text/css" href="Pizza_CSS/Pizza.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
@@ -13,7 +40,13 @@
         <h1>Pizza Drill Tutorial</h1>
         <img src="pizza-slice.png" alt="Delicious Pizza Slice" id="pizzaSliceIcon">
 
-        <input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order">
+        <!-- Phone number input -->
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required placeholder="123-456-7890"><br><br>
+
+        <!-- Updated button to trigger custom validation -->
+        <input id="btnOrder" type="button" onclick="handleOrderClick()" value="Place Order">
+
         <form id="frmMenu">
             <div class="menu-options">
                 <div class="menu left">
