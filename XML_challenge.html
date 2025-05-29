@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XML Challenge</title>
+</head>
+<body>
+
+    <p id="XML_Example"></p>
+
+    <script>
+        // Declare variables for the XML parser and the XML document object.
+        var XML_Parser, XML_Document;
+
+        // Creates a text string containing custom XML data.
+        // We're defining a 'song' with a title, artist, album, and year.
+        var SongXML = "" +
+            "<song>" +
+                "<track_title>Bohemian Rhapsody</track_title>" +
+                "<artist>Queen</artist>" +
+                "<album>A Night at the Opera</album>" +
+                "<release_year>1975</release_year>" +
+            "</song>";
+
+        // Creates a new DOMParser object, which is used to parse XML or HTML strings.
+        XML_Parser = new DOMParser();
+
+        // Creates a new XML DOM object by parsing the 'SongXML' string.
+        // "text/xml" specifies the MIME type of the string being parsed.
+        XML_Document = XML_Parser.parseFromString(SongXML, "text/xml");
+
+        // Accesses the HTML element with the ID 'XML_Example'.
+        // It then sets its innerHTML to the value of a specific XML tag.
+        // Here, it gets all elements with the tag name 'track_title'.
+        // It takes the first one found ([0]), accesses its child nodes (which would be the text content),
+        // takes the first child node ([0]), and finally gets its nodeValue (the actual text).
+        document.getElementById("XML_Example").innerHTML =
+            XML_Document.getElementsByTagName("track_title")[0].childNodes[0].nodeValue;
+
+    </script>
+
+</body>
+</html>

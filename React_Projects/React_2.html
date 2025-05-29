@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 2 Project</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+     <div id="like_button_container"></div>
+
+    <script>
+        // Use a shorthand 'X' for React.createElement for brevity, as seen in the source image.
+        const X = React.createElement;
+
+        // Define a React class component named LikeButton.
+        class LikeButton extends React.Component {
+          // Constructor to initialize the component's state.
+          constructor(props) {
+            super(props); // Call the parent class constructor.
+            this.state = { liked: false }; // Initialize 'liked' state to false.
+          }
+
+          // The render method defines what the component will display.
+          render() {
+            // If the button is 'liked' (state.liked is true), display a message.
+            if (this.state.liked) {
+              return 'You clicked the like button!';
+            }
+
+            // Otherwise, render a button.
+            return X(
+              'button', // Type of HTML element to create.
+              // Props object for the button:
+              { onClick: () => this.setState({ liked: true }) }, // onClick handler updates 'liked' state to true.
+              'Like' // Children of the button (its text content).
+            );
+          }
+        }
+
+        // Select the DOM element where the React component will be rendered.
+        const domContainer = document.querySelector('#like_button_container');
+        // Render the LikeButton component into the selected DOM container.
+        ReactDOM.render(X(LikeButton), domContainer);
+    </script>
+</body>
+</html>
