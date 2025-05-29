@@ -303,3 +303,26 @@ label { /* If you were using labels, this would style them */
         font-size: 1.5em;
     }
 }
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Bookmark navigation styles */
+.nav-links {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #e67e22;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #d35400;
+    text-decoration: underline;
+}

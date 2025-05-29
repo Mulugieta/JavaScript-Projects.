@@ -40,17 +40,23 @@
         <h1>Pizza Drill Tutorial</h1>
         <img src="pizza-slice.png" alt="Delicious Pizza Slice" id="pizzaSliceIcon">
 
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="#size-section">Size</a>
+            <a href="#meats-section">Meats</a>
+            <a href="#veggies-section">Vegetables</a>
+        </div>
+
         <!-- Phone number input -->
         <label for="phone">Phone Number:</label><br>
         <input type="tel" id="phone" name="phone" required placeholder="123-456-7890"><br><br>
 
-        <!-- Updated button to trigger custom validation -->
         <input id="btnOrder" type="button" onclick="handleOrderClick()" value="Place Order">
 
         <form id="frmMenu">
             <div class="menu-options">
                 <div class="menu left">
-                    <h3>Size:</h3>
+                    <h3 id="size-section">Size:</h3>
                     <input class="size" type="radio" name="Size" value="Personal Pizza">Personal Pizza<br>
                     <input class="size" type="radio" name="Size" value="Small Pizza">Small Pizza<br>
                     <input class="size" type="radio" name="Size" value="Medium Pizza">Medium Pizza<br>
@@ -58,7 +64,7 @@
                     <input class="size" type="radio" name="Size" value="Extra Large Pizza">Extra Large Pizza<br>
                 </div>
                 <div class="menu right">
-                    <h3>Meats:</h3>
+                    <h3 id="meats-section">Meats:</h3>
                     <input class="toppings" type="checkbox" name="Topping" value="Pepperoni">Pepperoni<br>
                     <input class="toppings" type="checkbox" name="Topping" value="Sausage">Sausage<br>
                     <input class="toppings" type="checkbox" name="Topping" value="Canadian Bacon">Canadian Bacon<br>
@@ -68,7 +74,7 @@
                     <input class="toppings" type="checkbox" name="Topping" value="Salami">Salami<br>
                 </div>
                 <div class="menu vegetables">
-                    <h3>Vegetables:</h3>
+                    <h3 id="veggies-section">Vegetables:</h3>
                     <input class="toppings" type="checkbox" name="Topping" value="Mushrooms">Mushrooms<br>
                     <input class="toppings" type="checkbox" name="Topping" value="Onions">Onions<br>
                     <input class="toppings" type="checkbox" name="Topping" value="Tomatoes">Tomatoes<br>
